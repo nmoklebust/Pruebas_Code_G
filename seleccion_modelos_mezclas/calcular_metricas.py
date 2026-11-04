@@ -87,6 +87,12 @@ def calcular(paquete,salida):
                       ('seleccion_por_objetivo.csv',pd.DataFrame(seleccion)),
                       ('concentraciones_nominales_mezclas.csv',clave)]:
         df.to_csv(salida/nombre,index=False,float_format='%.17g')
+    # Resumen compacto solicitado para discutir MAE, RMSE y R² de las mezclas nuevas.
+    columnas=['familia','objetivo','modelo','modo','n','MAE_mM','RMSE_mM','R2','sesgo_mM',
+              'mostrado_en_nominal_vs_predicha']
+    globales[columnas].rename(columns={'familia':'solucion_entrenamiento','modo':'configuracion',
+        'n':'n_observaciones','mostrado_en_nominal_vs_predicha':'modelo_mostrado_en_figura'}).to_csv(
+        salida/'metricas_MAE_RMSE_R2_mezclas_nuevas.csv',index=False,encoding='utf-8-sig',float_format='%.17g')
     info=dict(paquete=paquete.name,tabla_entrada=origen,
               sha256_predicciones=sha_original,
               n_predicciones=2700,n_modelos=9,n_por_modelo=300,mezclas_por_modelo=5,

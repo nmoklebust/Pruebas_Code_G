@@ -76,3 +76,12 @@ python seleccion_modelos_mezclas/calcular_metricas.py
 ```
 
 También permite `--paquete ruta/al/figuras_poster.zip --salida carpeta`. El script verifica los nominales, identidades, recuentos y correspondencia entre la lista de la figura y los mínimos calculados. No modifica el paquete, las figuras ni las predicciones.
+
+
+## CSV compacto de MAE, RMSE y R²
+
+[metricas_MAE_RMSE_R2_mezclas_nuevas.csv](metricas_MAE_RMSE_R2_mezclas_nuevas.csv) reúne los nueve modelos, con solución de entrenamiento, objetivo nominal, modelo/configuración, n = 300, MAE, RMSE, R², sesgo y un indicador de si se muestra en nominal frente a predicha. MAE, RMSE y sesgo están en mM; R² es adimensional. El archivo utiliza coma como separador y punto decimal, con codificación UTF-8 con BOM para facilitar su importación. Se regenera ejecutando el mismo script.
+
+Son métricas globales de las cinco mezclas; no se promedian R² por mezcla. Dentro de cada composición el nominal es constante, por lo que no se proporciona un R² por composición. Los errores por composición sí están en el CSV correspondiente.
+
+En KCl, R² es −2,689795 para SVR, −66,150312 para GPR-PCA y −97,911195 para PLS. R² negativo es un resultado válido de `1 − SSE/SST`: el error cuadrático total es mayor que el de predecir una constante igual a la media nominal de estas mismas observaciones. Este referente describe la definición de R²; no es un modelo nuevo entrenado ni una predicción independiente. Los sesgos positivos indican sobrepredicción media. En NaCl, los tres sesgos también son positivos; en PBS son negativos. Estas métricas no identifican por sí solas la causa del desempeño.
