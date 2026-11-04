@@ -1,0 +1,26 @@
+{
+  "paquete": "figuras_poster.zip",
+  "tabla_entrada": "figuras_poster/salidas/tablas/predicciones_mezclas.csv",
+  "sha256_predicciones": "78286f24ad8ed3cd23240d1babf9cdf35b55d5f622162a57c34ee02ee4b68a98",
+  "n_predicciones": 2700,
+  "n_modelos": 9,
+  "n_por_modelo": 300,
+  "mezclas_por_modelo": 5,
+  "observaciones_por_mezcla_y_modelo": 60,
+  "objetivos_verificados": {
+    "NaCl": "NaCl nominal",
+    "KCl": "KCl nominal",
+    "PBS": "Cloruro total nominal (NaCl + KCl)"
+  },
+  "criterio": "MAE global mínimo dentro de cada objetivo; selección descriptiva para visualización",
+  "formula": "MAE = mean(abs(predicho_mM - nominal_mM)) sobre 300 observaciones",
+  "equivalencia": "Los cinco MAE por mezcla tienen el mismo peso porque cada mezcla aporta 60 observaciones",
+  "lista_fijada_en_codigo": {
+    "NaCl": "PLS_Regression",
+    "KCl": "SVR_RBF",
+    "PBS": "Ridge_Regression"
+  },
+  "lista_coincide_con_minimos_MAE": true,
+  "unidades": "mM; MAE_pp = 100*MAE_mM/madre_mM",
+  "limitacion": "Elección posterior a observar el desempeño de estas mezclas, no una selección independiente previa; observaciones repetidas descriptivas"
+}

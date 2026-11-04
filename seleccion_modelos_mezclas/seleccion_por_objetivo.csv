@@ -1,0 +1,4 @@
+familia,objetivo,modelo_mostrado,modo,MAE_global_mM,RMSE_global_mM,segundo_modelo,MAE_segundo_mM,diferencia_MAE_mM,reduccion_MAE_vs_segundo_pct,mezclas_con_menor_MAE,n,seleccion
+NaCl,NaCl nominal,PLS,Optimizado,9.0735953611952773,9.8076087604362083,Ridge,9.1419818806268101,0.068386519431532733,0.74804916838058622,4,300,descriptiva posterior a la evaluación de estas mezclas
+PBS,Cloruro total nominal (NaCl + KCl),Ridge,Base,6.8375340230170965,8.2065085552132917,PLS,7.9513936539572176,1.1138596309401212,14.008357269367238,2,300,descriptiva posterior a la evaluación de estas mezclas
+KCl,KCl nominal,SVR (RBF),Base,3.09438589996613,3.9178500653279036,GPR-PCA,16.485525389017713,13.391139489051582,81.229679813374091,5,300,descriptiva posterior a la evaluación de estas mezclas
